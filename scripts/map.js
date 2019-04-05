@@ -286,7 +286,7 @@ $(window).on('load', function() {
       var popupProperties = getPolygonSetting(p, '_popupProp').split(';');
       for (i in popupProperties) { popupProperties[i] = popupProperties[i].split(','); }
       allPopupProperties.push(popupProperties);
-console.log(p)
+
       // Load geojson
       $.getJSON(getPolygonSetting(p, '_polygonsGeojsonURL'), function(data) {
           geoJsonLayer = L.geoJson(data, {
@@ -295,6 +295,8 @@ console.log(p)
               return L.circleMarker(latlng, {
                 className: 'geojson-point-marker'
               });
+              
+              console.log(data)
             }
           });
           allGeojsons.push(geoJsonLayer);
